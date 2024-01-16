@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">StoryApp</string>
+
+    <!--    TextField Error-->
+    <string name="error_username">Username must be 4 characters minimum"</string>
+    <string name="error_password">Password must be 8 characters minimum</string>
+    <string name="error_email">Incorrect email format</string>
+
+    <!--    TextField Hints-->
+    <string name="hint_username">Enter username</string>
+    <string name="hint_email">Enter email</string>
+    <string name="hint_password">Enter password</string>
+</resources>
