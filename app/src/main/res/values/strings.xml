@@ -2,12 +2,34 @@
     <string name="app_name">StoryApp</string>
 
     <!--    TextField Error-->
-    <string name="error_username">Username must be 4 characters minimum"</string>
+    <string name="error_username">Username must be 4 characters minimum</string>
     <string name="error_password">Password must be 8 characters minimum</string>
     <string name="error_email">Incorrect email format</string>
+    <string name="error_hint">Please fill this field</string>
 
     <!--    TextField Hints-->
     <string name="hint_username">Enter username</string>
     <string name="hint_email">Enter email</string>
     <string name="hint_password">Enter password</string>
+    <string name="hint_description">Description</string>
+
+    <!--   Toolbar Title -->
+    <string name="toolbar_title_upload">Upload Story</string>
+    <string name="toolbar_title_settings">Settings</string>
+
+    <!--   Button Label -->
+    <string name="btn_text_upload">Upload</string>
+    <string name="textbtn_text_login">Login</string>
+    <string name="btn_text_register">Register</string>
+    <string name="btn_text_login">Login</string>
+    <string name="textbtn_title_register">Register</string>
+
+    <!--   Card Label -->
+    <string name="card_text_language">Language</string>
+    <string name="card_text_logout">Logout</string>
+
+    <!--   Title Text -->
+    <string name="text_title_register">Register</string>
+    <string name="text_title_login">Login</string>
+
 </resources>

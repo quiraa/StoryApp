@@ -28,11 +28,11 @@ class RegisterActivity : AppCompatActivity(R.layout.activity_register) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val username = binding.edUsername.text.toString()
-        val email = binding.edEmail.text.toString()
-        val password = binding.edPassword.text.toString()
-
+        showLoading(false)
         binding.btnRegister.setOnClickListener {
+            val username = binding.edUsername.text.toString()
+            val email = binding.edEmail.text.toString()
+            val password = binding.edPassword.text.toString()
             if (username.isEmpty() || email.isEmpty() || password.isEmpty()) Toast.makeText(
                 this,
                 "All fields must be filled",
@@ -48,6 +48,7 @@ class RegisterActivity : AppCompatActivity(R.layout.activity_register) {
                     LoginActivity::class.java
                 )
             )
+            finish()
         }
 
         viewModel.registerState.observe(this) { state ->

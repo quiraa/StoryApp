@@ -25,19 +25,19 @@ fun File.buildImageBodyPart(): MultipartBody.Part {
 fun Bitmap.convertToFile(context: Context, fileName: String): File {
     val file = File(context.cacheDir, fileName)
     file.createNewFile()
-    val bos = ByteArrayOutputStream()
-    this.compress(Bitmap.CompressFormat.JPEG, 75, bos)
-    val bitMapData = bos.toByteArray()
-    var fos: FileOutputStream? = null
+    val byteArrayOutputStream = ByteArrayOutputStream()
+    this.compress(Bitmap.CompressFormat.JPEG, 75, byteArrayOutputStream)
+    val bitMapData = byteArrayOutputStream.toByteArray()
+    var fileOutputStream: FileOutputStream? = null
     try {
-        fos = FileOutputStream(file)
+        fileOutputStream = FileOutputStream(file)
     } catch (e: FileNotFoundException) {
         e.printStackTrace()
     }
     try {
-        fos?.write(bitMapData)
-        fos?.flush()
-        fos?.close()
+        fileOutputStream?.write(bitMapData)
+        fileOutputStream?.flush()
+        fileOutputStream?.close()
     } catch (e: IOException) {
         e.printStackTrace()
     }

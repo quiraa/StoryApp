@@ -76,7 +76,7 @@ class PasswordTextField : AppCompatEditText {
     }
 
     private fun updateDrawable() {
-        val icon = if (isVisible) visibilityOffIcon else visibilityIcon
+        val icon = if (isVisible) visibilityIcon else visibilityOffIcon
         setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, icon, null)
     }
 }

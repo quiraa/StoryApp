@@ -27,8 +27,14 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
         super.onCreate(savedInstanceState)
         Kotpref.init(this)
 
-        showLoading(false)
+        viewModel.isLoggedIn.observe(this) { isLoggedIn ->
+            if(isLoggedIn) {
+                startActivity(Intent(this@LoginActivity, StoryActivity::class.java))
+                finish()
+            }
+        }
 
+        showLoading(false)
         binding.textButtonRegister.setOnClickListener {
             startActivity(
                 Intent(
@@ -36,6 +42,7 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
                     RegisterActivity::class.java
                 )
             )
+            finish()
         }
 
         binding.btnLogin.setOnClickListener {

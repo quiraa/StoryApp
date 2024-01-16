@@ -39,11 +39,6 @@ class StoryActivity : AppCompatActivity(R.layout.activity_story) {
         super.onCreate(savedInstanceState)
         setSupportActionBar(binding.toolbarStory)
 
-
-        var img: ImageView = findViewById(R.id.img_story)
-        var name: MaterialTextView = findViewById(R.id.tv_story_name)
-        var description : MaterialTextView = findViewById(R.id.tv_story_description)
-
         val rvStory = binding.rvStory
         binding.fabUpload.isVisible = false
         showLoading(true)
@@ -76,7 +71,6 @@ class StoryActivity : AppCompatActivity(R.layout.activity_story) {
                             Intent(
                                 this@StoryActivity,
                                 UploadStoryActivity::class.java,
-
                             )
                         )
                     }

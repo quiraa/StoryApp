@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
         app:navigationIconTint="?colorOnPrimary"
-        app:title="Settings"
+        app:title="@string/toolbar_title_settings"
         app:titleTextColor="?colorOnPrimary"
         app:titleCentered="true"/>
 
@@ -42,7 +42,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Language"
+                android:text="@string/card_text_language"
                 style="@style/TextAppearance.Material3.BodyLarge"/>
 
             <ImageView
@@ -78,7 +78,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Logout"
+                android:text="@string/card_text_logout"
                 style="@style/TextAppearance.Material3.BodyLarge"/>
 
             <ImageView
