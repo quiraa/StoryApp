@@ -17,9 +17,8 @@ class StoryAdapter(
         fun bindView(story: StoryItem) {
 
             binding.apply {
-                tvStoryName.text = story.name
-                tvStoryDescription.text = story.description
-                binding.imgStory.load(story.photoUrl)
+                tvItemName.text = story.name
+                binding.ivItemPhoto.load(story.photoUrl)
             }
         }
     }

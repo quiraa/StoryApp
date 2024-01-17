@@ -5,11 +5,9 @@ import android.os.Bundle
 import android.provider.Settings
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.quiraadev.storyapp.R
-import com.quiraadev.storyapp.data.factory.ViewModelFactory
 import com.quiraadev.storyapp.databinding.ActivitySettingBinding
 import com.quiraadev.storyapp.ui.login.LoginActivity
 
@@ -25,19 +23,19 @@ class SettingActivity : AppCompatActivity(R.layout.activity_setting) {
 
         binding.toolbarSetting.setNavigationOnClickListener { finish() }
 
-        binding.cardLang.setOnClickListener {
+        binding.actionLanguage.setOnClickListener {
             startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
         }
 
-        binding.cardLogout.setOnClickListener {
+        binding.actionLogout.setOnClickListener {
             val dialog = confirmationDialog()
             dialog.show()
         }
 
         viewModel.isLoggedIn.observe(this) { isLoggedIn ->
-            if(isLoggedIn == false) {
+            if (isLoggedIn == false) {
                 startActivity(Intent(this, LoginActivity::class.java))
-                finish()
+                finishAffinity()
             }
         }
 

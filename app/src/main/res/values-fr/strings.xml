@@ -29,4 +29,6 @@
     <!-- Texte du titre -->
     <string name="text_title_register">Register</string>
     <string name="text_title_login">Login</string>
+
+    <string name="language_availability">Langue disponible : Anglais (US), Bahasa Indonesia, Français, Espagnol</string>
 </resources>

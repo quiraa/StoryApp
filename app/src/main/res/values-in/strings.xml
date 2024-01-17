@@ -33,4 +33,6 @@
     <string name="text_title_register">Daftar</string>
     <string name="text_title_login">Masuk</string>
 
+    <string name="language_availability">Bahasa yang tersedia: Bahasa Inggris (AS), Bahasa Indonesia, Bahasa Prancis, Bahasa Spanyol</string>
+
 </resources>

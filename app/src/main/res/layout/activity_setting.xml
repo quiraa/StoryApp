@@ -21,7 +21,7 @@
         app:titleCentered="true"/>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_lang"
+        android:id="@+id/action_language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/toolbar_setting"
@@ -58,10 +58,10 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_logout"
+        android:id="@+id/action_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/card_lang"
+        app:layout_constraintTop_toBottomOf="@id/action_language"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp"
@@ -94,4 +94,15 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_info_language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/action_logout"
+        app:layout_constraintStart_toStartOf="@id/action_logout"
+        app:layout_constraintEnd_toEndOf="@id/action_logout"
+        android:text="@string/language_availability"
+        style="@style/TextAppearance.Material3.TitleMedium"
+        android:textAlignment="center"
+        android:layout_marginTop="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,5 +31,6 @@
     <!--   Title Text -->
     <string name="text_title_register">Register</string>
     <string name="text_title_login">Login</string>
+    <string name="language_availability">Available Language: English (US), Bahasa Indonesia, French, Spanish</string>
 
 </resources>

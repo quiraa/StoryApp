@@ -24,9 +24,9 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val image = binding.imgDetail
-        val name = binding.tvUploader
-        val desc = binding.tvDescription
+        val image = binding.ivDetailPhoto
+        val name = binding.tvDetailName
+        val desc = binding.tvDetailDescription
 
         val storyId = intent.getStringExtra(StoryActivity.STORY_ID) ?: "vfdjaduh3luda"
         viewModel.getDetailStory(storyId)

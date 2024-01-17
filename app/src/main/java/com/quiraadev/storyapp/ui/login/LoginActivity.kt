@@ -1,8 +1,10 @@
 package com.quiraadev.storyapp.ui.login
 
+import android.animation.ObjectAnimator
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -14,11 +16,13 @@ import com.quiraadev.storyapp.data.factory.ViewModelFactory
 import com.quiraadev.storyapp.databinding.ActivityLoginBinding
 import com.quiraadev.storyapp.ui.register.RegisterActivity
 import com.quiraadev.storyapp.ui.story.StoryActivity
-import com.quiraadev.storyapp.utils.DialogType
 
 class LoginActivity : AppCompatActivity(R.layout.activity_login) {
     private val viewModel: LoginViewModel by lazy {
-        ViewModelProvider(this, ViewModelFactory.getInstance(application)).get(LoginViewModel::class.java)
+        ViewModelProvider(
+            this,
+            ViewModelFactory.getInstance(application)
+        ).get(LoginViewModel::class.java)
     }
 
     private val binding by viewBinding(ActivityLoginBinding::bind)
@@ -28,7 +32,7 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
         Kotpref.init(this)
 
         viewModel.isLoggedIn.observe(this) { isLoggedIn ->
-            if(isLoggedIn) {
+            if (isLoggedIn) {
                 startActivity(Intent(this@LoginActivity, StoryActivity::class.java))
                 finish()
             }
@@ -46,8 +50,8 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
         }
 
         binding.btnLogin.setOnClickListener {
-            val email = binding.edEmail.text.toString()
-            val password = binding.edPassword.text.toString()
+            val email = binding.edLoginEmail.text.toString()
+            val password = binding.edLoginPassword.text.toString()
 
             if (email.isEmpty() || password.isEmpty()) Toast.makeText(
                 this,
@@ -70,6 +74,20 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
                 }
             }
         }
+    }
+
+    private fun playAnimation() {
+        ObjectAnimator.ofFloat(binding.imgLogin, View.TRANSLATION_X, -30f, 30f).apply {
+            duration = 5000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        val title = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(500)
+        val edEmail = ObjectAnimator.ofFloat(binding.edLoginEmail, View.ALPHA, 1f).setDuration(500)
+        val edPassword = ObjectAnimator.ofFloat(binding.edLoginPassword, View.ALPHA, 1f).setDuration(500)
+        val loginBtn = ObjectAnimator.ofFloat(binding.edLoginPassword, View.ALPHA, 1f).setDuration(500)
+        val registerTextBtn = ObjectAnimator.ofFloat(binding.edLoginPassword, View.ALPHA, 1f).setDuration(500)
     }
 
     private fun showErrorDialog(message: String?): AlertDialog {

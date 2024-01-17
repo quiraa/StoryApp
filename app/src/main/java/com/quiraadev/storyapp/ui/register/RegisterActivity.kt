@@ -3,7 +3,6 @@ package com.quiraadev.storyapp.ui.register
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -30,15 +29,15 @@ class RegisterActivity : AppCompatActivity(R.layout.activity_register) {
 
         showLoading(false)
         binding.btnRegister.setOnClickListener {
-            val username = binding.edUsername.text.toString()
-            val email = binding.edEmail.text.toString()
-            val password = binding.edPassword.text.toString()
-            if (username.isEmpty() || email.isEmpty() || password.isEmpty()) Toast.makeText(
+            val name = binding.edRegisterName.text.toString()
+            val email = binding.edRegisterEmail.text.toString()
+            val password = binding.edRegisterPassword.text.toString()
+            if (name.isEmpty() || email.isEmpty() || password.isEmpty()) Toast.makeText(
                 this,
                 "All fields must be filled",
                 Toast.LENGTH_SHORT
             ).show()
-            else viewModel.register(username, email, password)
+            else viewModel.register(name, email, password)
         }
 
         binding.textButtonLogin.setOnClickListener {
@@ -52,17 +51,19 @@ class RegisterActivity : AppCompatActivity(R.layout.activity_register) {
         }
 
         viewModel.registerState.observe(this) { state ->
-            when(state) {
+            when (state) {
                 is RegisterState.Error -> {
                     createDialog(DialogType.ERROR, state.message)
                     showLoading(false)
                 }
+
                 is RegisterState.Loading -> showLoading(true)
                 is RegisterState.Success -> {
                     createDialog(DialogType.SUCCESS, "Successful")
                     showLoading(false)
                 }
-                null -> { }
+
+                null -> {}
             }
         }
     }
