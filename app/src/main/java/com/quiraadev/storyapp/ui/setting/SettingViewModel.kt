@@ -1,5 +1,6 @@
 package com.quiraadev.storyapp.ui.setting
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -13,16 +14,19 @@ class SettingViewModel : ViewModel() {
     private val _isLoggedIn = MutableLiveData(AppPreference.isLoggedIn)
     val isLoggedIn : LiveData<Boolean> = _isLoggedIn
 
-    fun logout() {
-        viewModelScope.launch {
-            clearSession()
-        }
-    }
+    private val _isDarkMode = MutableLiveData(AppPreference.isDarkMode)
+    val isDarkMode : LiveData<Boolean> = _isDarkMode
 
-    private fun clearSession() {
+    fun logout() {
         AppPreference.token = ""
         AppPreference.isLoggedIn = false
         _isLoggedIn.postValue(false)
+        Log.d("SettingViewModel", "Token: ${AppPreference.token}, IsLogin: ${_isLoggedIn.value}}")
+    }
+
+    fun setDarkMode(value : Boolean) {
+        AppPreference.isDarkMode = value
+        _isDarkMode.postValue(value)
     }
 
 }

@@ -60,26 +60,16 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
         viewModel.loginState.observe(this) { state ->
             when (state) {
                 is LoginState.Error -> {
-                    createDialog(DialogType.ERROR, state.message)
+                    showErrorDialog(state.message)
                     showLoading(false)
                 }
 
                 is LoginState.Loading -> showLoading(true)
                 is LoginState.Success -> {
                     showLoading(false)
-                    createDialog(DialogType.SUCCESS, "Succesful")
                 }
             }
         }
-    }
-
-
-    private fun createDialog(dialogType: DialogType, message: String?) {
-        val dialog = when (dialogType) {
-            DialogType.SUCCESS -> showSuccessDialog(message)
-            DialogType.ERROR -> showErrorDialog(message)
-        }
-        dialog.show()
     }
 
     private fun showErrorDialog(message: String?): AlertDialog {
@@ -88,18 +78,6 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
             .setMessage(message ?: "An Error Occured")
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
-            }
-            .create()
-    }
-
-    private fun showSuccessDialog(message: String?): AlertDialog {
-        return AlertDialog.Builder(this)
-            .setTitle("Success")
-            .setMessage(message ?: "Operation Successful")
-            .setPositiveButton("OK") { dialog, _ ->
-                dialog.dismiss()
-                startActivity(Intent(this@LoginActivity, StoryActivity::class.java))
-                finish()
             }
             .create()
     }

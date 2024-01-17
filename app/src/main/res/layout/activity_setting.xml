@@ -36,14 +36,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/card_text_language"
-                style="@style/TextAppearance.Material3.BodyLarge"/>
+                style="@style/TextAppearance.Material3.BodyLarge" />
 
             <ImageView
                 android:layout_width="40dp"
@@ -72,14 +73,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/card_text_logout"
-                style="@style/TextAppearance.Material3.BodyLarge"/>
+                style="@style/TextAppearance.Material3.BodyLarge" />
 
             <ImageView
                 android:layout_width="40dp"

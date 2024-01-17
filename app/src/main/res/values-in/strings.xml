@@ -26,7 +26,7 @@
     <string name="textbtn_title_register">Daftar</string>
 
     <!--   Card Label -->
-    <string name="card_text_language">Bahasa</string>
+    <string name="card_text_language">Ubah Bahasa</string>
     <string name="card_text_logout">Keluar</string>
 
     <!--   Title Text -->

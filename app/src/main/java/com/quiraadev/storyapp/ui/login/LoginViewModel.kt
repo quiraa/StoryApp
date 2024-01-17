@@ -31,6 +31,7 @@ class LoginViewModel(
                 }
                 AppPreference.token = result.loginResult.token
                 saveSession(true)
+                Log.d("LoginViewModel", "Token: ${result.loginResult.token}, IsLogin: ${_isLoggedIn.value}")
             } catch (e : Exception) {
                 _loginState.postValue(
                     LoginState.Error(e.message.toString())
