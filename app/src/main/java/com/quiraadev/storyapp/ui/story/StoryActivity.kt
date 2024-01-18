@@ -4,22 +4,18 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.google.android.material.textview.MaterialTextView
 import com.quiraadev.storyapp.R
 import com.quiraadev.storyapp.data.factory.ViewModelFactory
 import com.quiraadev.storyapp.databinding.ActivityStoryBinding
 import com.quiraadev.storyapp.ui.detail.DetailActivity
 import com.quiraadev.storyapp.ui.setting.SettingActivity
 import com.quiraadev.storyapp.ui.uploadstory.UploadStoryActivity
-import androidx.core.util.Pair
 
 class StoryActivity : AppCompatActivity(R.layout.activity_story) {
     private val binding by viewBinding(ActivityStoryBinding::bind)
@@ -67,12 +63,7 @@ class StoryActivity : AppCompatActivity(R.layout.activity_story) {
 
                     binding.fabUpload.isVisible = true
                     binding.fabUpload.setOnClickListener {
-                        startActivity(
-                            Intent(
-                                this@StoryActivity,
-                                UploadStoryActivity::class.java,
-                            )
-                        )
+                        startActivity(Intent(this@StoryActivity, UploadStoryActivity::class.java))
                     }
                 }
             }

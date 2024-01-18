@@ -30,6 +30,7 @@
     <!-- Texto del título -->
     <string name="text_title_register">Registrarse</string>
     <string name="text_title_login">Iniciar sesión</string>
-
     <string name="language_availability">Idioma disponible: Inglés (US), Bahasa Indonesia, Francés, Español</string>
+    <string name="alternative_login_description">No tiene cuenta?</string>
+    <string name="alternative_register_description">Ya tiene una cuenta?</string>
 </resources>

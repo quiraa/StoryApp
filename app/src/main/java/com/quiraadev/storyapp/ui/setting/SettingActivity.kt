@@ -14,7 +14,7 @@ import com.quiraadev.storyapp.ui.login.LoginActivity
 class SettingActivity : AppCompatActivity(R.layout.activity_setting) {
     private val binding by viewBinding(ActivitySettingBinding::bind)
     private val viewModel: SettingViewModel by lazy {
-        ViewModelProvider(this).get(SettingViewModel::class.java)
+        ViewModelProvider(this)[SettingViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,7 +38,6 @@ class SettingActivity : AppCompatActivity(R.layout.activity_setting) {
                 finishAffinity()
             }
         }
-
     }
 
     private fun confirmationDialog(): AlertDialog {

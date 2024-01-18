@@ -37,5 +37,4 @@ class StoryAdapter(
             onClick?.invoke(data.id)
         }
     }
-
 }

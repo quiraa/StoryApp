@@ -31,6 +31,10 @@
     <!--   Title Text -->
     <string name="text_title_register">Register</string>
     <string name="text_title_login">Login</string>
+
+    <!--   Others -->
     <string name="language_availability">Available Language: English (US), Bahasa Indonesia, French, Spanish</string>
+    <string name="alternative_login_description">Doesn\'t have an account?</string>
+    <string name="alternative_register_description">Already have an account?</string>
 
 </resources>

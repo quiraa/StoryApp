@@ -1,8 +1,14 @@
 package com.quiraadev.storyapp.ui.register
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import android.app.AlertDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -20,7 +26,7 @@ class RegisterActivity : AppCompatActivity(R.layout.activity_register) {
         ViewModelProvider(
             this,
             ViewModelFactory.getInstance(application)
-        ).get(RegisterViewModel::class.java)
+        )[RegisterViewModel::class.java]
     }
 
     private val binding by viewBinding(ActivityRegisterBinding::bind)
@@ -28,6 +34,7 @@ class RegisterActivity : AppCompatActivity(R.layout.activity_register) {
         super.onCreate(savedInstanceState)
 
         showLoading(false)
+        setupView()
         binding.btnRegister.setOnClickListener {
             val name = binding.edRegisterName.text.toString()
             val email = binding.edRegisterEmail.text.toString()
@@ -66,6 +73,53 @@ class RegisterActivity : AppCompatActivity(R.layout.activity_register) {
                 null -> {}
             }
         }
+        playAnimation()
+    }
+
+    private fun playAnimation() {
+        ObjectAnimator.ofFloat(binding.imgRegister, View.TRANSLATION_X, -30f, 30f).apply {
+            duration = 6000
+            repeatCount = ObjectAnimator.INFINITE
+            repeatMode = ObjectAnimator.REVERSE
+        }.start()
+
+        val title = ObjectAnimator.ofFloat(binding.tvRegisterTitle, View.ALPHA, 1f).setDuration(1000)
+        val edUsername =
+            ObjectAnimator.ofFloat(binding.tilRegisterUsername, View.ALPHA, 1f).setDuration(500)
+        val edEmail =
+            ObjectAnimator.ofFloat(binding.tilRegisterEmail, View.ALPHA, 1f).setDuration(500)
+        val edPassword =
+            ObjectAnimator.ofFloat(binding.tilRegisterPassword, View.ALPHA, 1f).setDuration(500)
+        val registerBtn =
+            ObjectAnimator.ofFloat(binding.btnRegister, View.ALPHA, 1f).setDuration(500)
+        val registerAlternative =
+            ObjectAnimator.ofFloat(binding.registerAlternative, View.ALPHA, 1f).setDuration(500)
+
+
+        AnimatorSet().apply {
+            playSequentially(
+                title,
+                edUsername,
+                edEmail,
+                edPassword,
+                registerBtn,
+                registerAlternative
+            )
+            start()
+        }
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 
     private fun createDialog(dialogType: DialogType, message: String?) {

@@ -14,6 +14,4 @@ object Injection {
             .build()
             .create(ApiService::class.java)
     }
-
-
 }

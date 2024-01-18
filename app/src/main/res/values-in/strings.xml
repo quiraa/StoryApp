@@ -1,38 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">StoryApp</string>
-
-    <!--    TextField Error-->
     <string name="error_username">Nama pengguna harus terdiri dari minimal 4 karakter</string>
     <string name="error_password">Kata sandi harus terdiri dari minimal 8 karakter</string>
     <string name="error_email">Format email salah</string>
     <string name="error_hint">Harap isi kolom ini</string>
-
-    <!--    TextField Hints-->
     <string name="hint_username">Masukkan nama pengguna</string>
     <string name="hint_email">Masukkan email</string>
     <string name="hint_password">Masukkan kata sandi</string>
     <string name="hint_description">Deskripsi</string>
-
-    <!--   Toolbar Title -->
     <string name="toolbar_title_upload">Unggah Cerita</string>
     <string name="toolbar_title_settings">Setelan</string>
-
-    <!--   Button Label -->
     <string name="btn_text_upload">Unggah</string>
     <string name="textbtn_text_login">Masuk</string>
     <string name="btn_text_register">Daftar</string>
     <string name="btn_text_login">Masuk</string>
     <string name="textbtn_title_register">Daftar</string>
-
-    <!--   Card Label -->
     <string name="card_text_language">Ubah Bahasa</string>
     <string name="card_text_logout">Keluar</string>
-
-    <!--   Title Text -->
     <string name="text_title_register">Daftar</string>
     <string name="text_title_login">Masuk</string>
-
     <string name="language_availability">Bahasa yang tersedia: Bahasa Inggris (AS), Bahasa Indonesia, Bahasa Prancis, Bahasa Spanyol</string>
+    <string name="alternative_login_description">Tidak memiliki akun?</string>
+    <string name="alternative_register_description">Sudah memiliki akun?</string>
 
 </resources>

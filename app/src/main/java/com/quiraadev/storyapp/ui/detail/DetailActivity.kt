@@ -18,7 +18,7 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
         ViewModelProvider(
             this,
             ViewModelFactory.getInstance(application)
-        ).get(DetailViewModel::class.java)
+        )[DetailViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +38,7 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
                     Toast.makeText(this@DetailActivity, state.message, Toast.LENGTH_SHORT).show()
                     showLoading(false)
                 }
+
                 is DetailState.Loading -> showLoading(true)
                 is DetailState.Success -> {
                     showLoading(false)
@@ -54,5 +55,4 @@ class DetailActivity : AppCompatActivity(R.layout.activity_detail) {
     private fun showLoading(isLoadng: Boolean) {
         binding.loadingCircle.isVisible = isLoadng
     }
-
 }

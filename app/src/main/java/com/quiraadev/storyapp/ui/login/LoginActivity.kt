@@ -1,10 +1,14 @@
 package com.quiraadev.storyapp.ui.login
 
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.AlertDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -22,7 +26,7 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
         ViewModelProvider(
             this,
             ViewModelFactory.getInstance(application)
-        ).get(LoginViewModel::class.java)
+        )[LoginViewModel::class.java]
     }
 
     private val binding by viewBinding(ActivityLoginBinding::bind)
@@ -31,6 +35,9 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
         super.onCreate(savedInstanceState)
         Kotpref.init(this)
 
+        showLoading(false)
+        setupView()
+        playAnimation()
         viewModel.isLoggedIn.observe(this) { isLoggedIn ->
             if (isLoggedIn) {
                 startActivity(Intent(this@LoginActivity, StoryActivity::class.java))
@@ -38,7 +45,6 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
             }
         }
 
-        showLoading(false)
         binding.textButtonRegister.setOnClickListener {
             startActivity(
                 Intent(
@@ -78,16 +84,44 @@ class LoginActivity : AppCompatActivity(R.layout.activity_login) {
 
     private fun playAnimation() {
         ObjectAnimator.ofFloat(binding.imgLogin, View.TRANSLATION_X, -30f, 30f).apply {
-            duration = 5000
+            duration = 6000
             repeatCount = ObjectAnimator.INFINITE
             repeatMode = ObjectAnimator.REVERSE
         }.start()
 
-        val title = ObjectAnimator.ofFloat(binding.tvTitle, View.ALPHA, 1f).setDuration(500)
-        val edEmail = ObjectAnimator.ofFloat(binding.edLoginEmail, View.ALPHA, 1f).setDuration(500)
-        val edPassword = ObjectAnimator.ofFloat(binding.edLoginPassword, View.ALPHA, 1f).setDuration(500)
-        val loginBtn = ObjectAnimator.ofFloat(binding.edLoginPassword, View.ALPHA, 1f).setDuration(500)
-        val registerTextBtn = ObjectAnimator.ofFloat(binding.edLoginPassword, View.ALPHA, 1f).setDuration(500)
+        val title = ObjectAnimator.ofFloat(binding.tvLoginTitle, View.ALPHA, 1f).setDuration(1000)
+        val edEmail =
+            ObjectAnimator.ofFloat(binding.textInputEmail, View.ALPHA, 1f).setDuration(500)
+        val edPassword =
+            ObjectAnimator.ofFloat(binding.textInputPassword, View.ALPHA, 1f).setDuration(500)
+        val loginBtn = ObjectAnimator.ofFloat(binding.btnLogin, View.ALPHA, 1f).setDuration(500)
+        val loginAlternative =
+            ObjectAnimator.ofFloat(binding.loginAlternative, View.ALPHA, 1f).setDuration(500)
+
+
+        AnimatorSet().apply {
+            playSequentially(
+                title,
+                edEmail,
+                edPassword,
+                loginBtn,
+                loginAlternative
+            )
+            start()
+        }
+    }
+
+    private fun setupView() {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+        supportActionBar?.hide()
     }
 
     private fun showErrorDialog(message: String?): AlertDialog {

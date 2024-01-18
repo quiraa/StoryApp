@@ -15,11 +15,7 @@ import java.io.IOException
 
 fun File.buildImageBodyPart(): MultipartBody.Part {
     val imageReq = this.asRequestBody("image/*".toMediaTypeOrNull())
-    return MultipartBody.Part.createFormData(
-        "photo",
-        this.name,
-        imageReq
-    )
+    return MultipartBody.Part.createFormData("photo", this.name, imageReq)
 }
 
 fun Bitmap.convertToFile(context: Context, fileName: String): File {
@@ -29,6 +25,7 @@ fun Bitmap.convertToFile(context: Context, fileName: String): File {
     this.compress(Bitmap.CompressFormat.JPEG, 75, byteArrayOutputStream)
     val bitMapData = byteArrayOutputStream.toByteArray()
     var fileOutputStream: FileOutputStream? = null
+
     try {
         fileOutputStream = FileOutputStream(file)
     } catch (e: FileNotFoundException) {
@@ -41,6 +38,7 @@ fun Bitmap.convertToFile(context: Context, fileName: String): File {
     } catch (e: IOException) {
         e.printStackTrace()
     }
+
     return file
 }
 

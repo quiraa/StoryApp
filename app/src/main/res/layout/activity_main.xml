@@ -7,6 +7,7 @@
     tools:context=".ui.splash.SplashActivity">
 
     <ImageView
+        android:id="@+id/img_splash"
         android:layout_width="144dp"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="1:1"
@@ -14,7 +15,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/snap_story" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

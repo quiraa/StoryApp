@@ -4,31 +4,22 @@
     <string name="error_password">Le mot de passe doit comporter 8 caractères minimum</string>
     <string name="error_email">Format d\'email incorrect</string>
     <string name="error_hint">Veuillez remplir ce champ</string>
-
-    <!-- Conseils pour les champs de texte-->
     <string name="hint_username">Entrez votre nom d\'utilisateur</string>
     <string name="hint_email">Entrez votre email</string>
     <string name="hint_password">Entrer le mot de passe</string>
     <string name="hint_description">Description</string>
-
-    <!-- Titre de la barre d'outils -->
     <string name="toolbar_title_upload">Télécharger l\'histoire</string>
     <string name="toolbar_title_settings">Settings</string>
-
-    <!-- Étiquette du bouton -->
     <string name="btn_text_upload">Téléchargement</string>
     <string name="textbtn_text_login">Login</string>
     <string name="btn_text_register">Enregistrer</string>
     <string name="btn_text_login">Login</string>
     <string name="textbtn_title_register">Enregistrer</string>
-
-    <!-- Étiquette de la carte -->
     <string name="card_text_language">Changer de langue</string>
     <string name="card_text_logout">Logout</string>
-
-    <!-- Texte du titre -->
     <string name="text_title_register">Register</string>
     <string name="text_title_login">Login</string>
-
     <string name="language_availability">Langue disponible : Anglais (US), Bahasa Indonesia, Français, Espagnol</string>
+    <string name="alternative_login_description">Vous n\'avez pas de compte ?</string>
+    <string name="alternative_register_description">Vous avez déjà un compte ?</string>
 </resources>

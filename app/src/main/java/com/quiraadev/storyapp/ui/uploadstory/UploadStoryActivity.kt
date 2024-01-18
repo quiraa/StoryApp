@@ -19,13 +19,14 @@ import com.quiraadev.storyapp.R
 import com.quiraadev.storyapp.data.factory.ViewModelFactory
 import com.quiraadev.storyapp.databinding.ActivityUploadStoryBinding
 
+@Suppress("DEPRECATION")
 class UploadStoryActivity : AppCompatActivity(R.layout.activity_upload_story) {
     private val binding by viewBinding(ActivityUploadStoryBinding::bind)
     private val viewModel: UploadStoryViewModel by lazy {
         ViewModelProvider(
             this,
             ViewModelFactory.getInstance(application)
-        ).get(UploadStoryViewModel::class.java)
+        )[UploadStoryViewModel::class.java]
     }
 
     private var uri: Uri? = null
@@ -42,7 +43,7 @@ class UploadStoryActivity : AppCompatActivity(R.layout.activity_upload_story) {
                 return@setOnClickListener
             }
 
-            if(description.isEmpty()) {
+            if (description.isEmpty()) {
                 binding.edDescription.error = "Please fill this field"
                 return@setOnClickListener
             }
@@ -53,9 +54,7 @@ class UploadStoryActivity : AppCompatActivity(R.layout.activity_upload_story) {
         binding.fabAddImage.setOnClickListener {
             ImagePicker.with(this)
                 .compress(1000)
-                .setDismissListener {
-                    Toast.makeText(this, "Dismissed", Toast.LENGTH_SHORT).show()
-                }
+                .setDismissListener { }
                 .galleryMimeTypes(arrayOf("image/*"))
                 .createIntent { intent ->
                     startForImageResult.launch(intent)
@@ -66,11 +65,12 @@ class UploadStoryActivity : AppCompatActivity(R.layout.activity_upload_story) {
 
         showLoading(false)
         viewModel.uploadState.observe(this) { state ->
-            when(state) {
+            when (state) {
                 is UploadStoryState.Error -> {
                     showLoading(false)
                     Toast.makeText(this, state.message, Toast.LENGTH_SHORT).show()
                 }
+
                 is UploadStoryState.Loading -> showLoading(true)
                 is UploadStoryState.Success -> {
                     showLoading(false)
@@ -105,7 +105,7 @@ class UploadStoryActivity : AppCompatActivity(R.layout.activity_upload_story) {
                     Toast.makeText(this, ImagePicker.getError(data), Toast.LENGTH_SHORT).show()
                 }
 
-                else -> { }
+                else -> {}
             }
         }
 

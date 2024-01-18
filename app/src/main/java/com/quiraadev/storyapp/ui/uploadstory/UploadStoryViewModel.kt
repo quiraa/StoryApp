@@ -42,7 +42,7 @@ class UploadStoryViewModel(
                 if (!response.error) {
                     _uploadState.postValue(UploadStoryState.Success)
                 }
-            } catch (e:  Exception) {
+            } catch (e: Exception) {
                 _uploadState.postValue(UploadStoryState.Error(e.message.toString()))
             }
         }
