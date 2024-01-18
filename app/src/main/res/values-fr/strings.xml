@@ -22,4 +22,5 @@
     <string name="language_availability">Langue disponible : Anglais (US), Bahasa Indonesia, Français, Espagnol</string>
     <string name="alternative_login_description">Vous n\'avez pas de compte ?</string>
     <string name="alternative_register_description">Vous avez déjà un compte ?</string>
+    <string name="splash_description">Capturez les instants de vie, partagez votre histoire\nOù chaque instant compte</string>
 </resources>

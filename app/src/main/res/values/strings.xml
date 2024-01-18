@@ -36,5 +36,6 @@
     <string name="language_availability">Available Language: English (US), Bahasa Indonesia, French, Spanish</string>
     <string name="alternative_login_description">Doesn\'t have an account?</string>
     <string name="alternative_register_description">Already have an account?</string>
+    <string name="splash_description">Capture life\'s moments, Share your story\nWhere every moment matters</string>
 
 </resources>

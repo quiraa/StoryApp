@@ -23,5 +23,6 @@
     <string name="language_availability">Bahasa yang tersedia: Bahasa Inggris (AS), Bahasa Indonesia, Bahasa Prancis, Bahasa Spanyol</string>
     <string name="alternative_login_description">Tidak memiliki akun?</string>
     <string name="alternative_register_description">Sudah memiliki akun?</string>
+    <string name="splash_description">Abadikan momen kehidupan, Bagikan kisah Anda\nDi mana setiap momen penting</string>
 
 </resources>
